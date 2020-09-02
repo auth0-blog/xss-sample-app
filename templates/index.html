@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang=en>
+  <head>
+    <meta charset=utf-8>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="css/tacit-css.min.css"/>
+    <title>The Vulnerable Movie Center</title>
+    <style>
+      .thin {
+        margin-top:5px;
+        margin-bottom:5px;
+      }
+      #search-form {
+        text-align:right;
+        margin-bottom:0;
+        padding-bottom:0;
+      }
+      #search-result {
+        display: none;
+      }
+      #movie-data {
+        padding-bottom:10px;
+      }
+      #playbill {
+        vertical-align:top;
+        margin:10px;
+      }
+      #movie-details {
+        display:inline-block;
+        width:40%;
+      }
+      #search-term {
+        font-style: italic;
+      }
+    </style>
+
+    <script>
+      function search() {
+        const searchResult = document.getElementById("search-result");
+        const searchTerm = document.getElementById("search-term");
+        const keyword = document.getElementById("keyword");
+
+        const movieData = document.getElementById("movie-data");
+        const comments = document.getElementById("comments");
+
+        movieData.style.visibility = "hidden";
+        comments.style.visibility = "hidden";
+
+        searchResult.style.display = "block";
+
+        searchTerm.innerHTML = keyword.value;
+
+        //querying the server for the keyword value
+
+        return false;
+      }
+    </script>
+  </head>
+  <body style="padding-top:0px">
+    <section>
+      <h1 style="margin-top:5px">The Vulnerable Movie Center</h1>
+      <hr class="thin">
+      <form id="search-form" onsubmit="return search()">
+        <input id="keyword" type="text" class="thin" placeholder="Search a movie"><button type="submit" class="thin">Go</button></form>
+      <hr>
+    </section>
+
+    <section id="search-result">
+      You searched for <span id="search-term"></span>
+      <p>Waiting for server's response...</p>
+    </section>
+
+    <section id="movie-data">
+      <img id="playbill" src="images/life-of-pi-movie.jpeg"/>
+      <div id="movie-details">
+        <b>Title:</b> Life of Pi<br/>
+        <b>Year:</b> 2012<br/>
+        <b>Directed by:</b> Ang Lee<br/>
+        <b>Starring:</b> Suraj Sharma, Irrfan Khan, Gerard Depardieu<br/>
+        <b>Duration:</b> 127 min.<br/>
+        <br/>
+        <b>Plot:</b>
+        <p>Pi Patel finds a way to survive in a lifeboat that is adrift in the middle of nowhere. His fight against the odds is heightened by the company of a hyena and a male Bengal tiger.</p>
+        <button type="submit">Play</button>
+      </div>
+    </section>
+
+    <section id="comments">
+      <form>
+        <fieldset>
+          <textarea name="newReview" cols="80" rows="5" placeholder="Add your review"></textarea>
+          <button type="submit">Submit</button>  
+        </fieldset>
+      </form>
+      <hr>
+      <h2>Comments</h2>
+      <dl>
+        $reviews$        
+      </dl>
+    </section>
+  </body>
+</html>

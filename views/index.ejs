@@ -1,0 +1,24 @@
+<html lang=en>
+  <head>
+    <meta charset=utf-8>
+    <title>The Attacker Website</title>
+    <link rel="stylesheet" type="text/css" href="css/tacit-css.min.css"/>
+  </head>
+  <body>
+    <h1>The Attacker Website</h1>
+
+    <% if (maliciousLink) {%>
+      <a href="<%= maliciousLink %>">Visit this website!</a>
+    <% } %>
+    
+    <table>
+      <thead><tr><th><h2>I stole this data</h2></th></tr></thead>
+      <tbody>
+        <% stolenData.forEach(data => {%>
+          <tr><td><%= data %></td></tr>
+        <% }); %>
+      </tbody>
+    </table>
+
+  </body>
+</html>
