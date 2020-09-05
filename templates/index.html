@@ -6,6 +6,9 @@
     <link rel="stylesheet" type="text/css" href="css/tacit-css.min.css"/>
     <title>The Vulnerable Movie Center</title>
     <style>
+      body {
+        padding-top:0px;
+      }
       .thin {
         margin-top:5px;
         margin-bottom:5px;
@@ -50,13 +53,13 @@
 
         searchTerm.innerHTML = keyword.value;
 
-        //querying the server for the keyword value
+        //fetching results related to the keyword value from the server
 
         return false;
       }
     </script>
   </head>
-  <body style="padding-top:0px">
+  <body>
     <section>
       <h1 style="margin-top:5px">The Vulnerable Movie Center</h1>
       <hr class="thin">

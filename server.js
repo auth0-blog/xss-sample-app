@@ -10,18 +10,18 @@ let reviews = [];
 app.use(express.static('public'));
 app.use(session({
   secret: 'my-secret',
-	resave: true,
-	saveUninitialized: true,
-	cookie: {
-	 	httpOnly: false
-	}
+  resave: true,
+  saveUninitialized: true,
+  cookie: {
+    httpOnly: false
+  }
 }));
 
 app.get('/', function (req, res) {
   if (req.query.newReview) reviews.push(req.query.newReview);
-	let template = fs.readFileSync('./templates/index.html', 'utf8');
-	let formattedReviews = reviews.map((review)=> `<dt>User</dt><dd>${review}</dd>`).join(' ');
-	let view = template.replace('$reviews$', formattedReviews);
+  const formattedReviews = reviews.map((review)=> `<dt>User</dt><dd>${review}</dd>`).join(' ');
+  const template = fs.readFileSync('./templates/index.html', 'utf8');
+  const view = template.replace('$reviews$', formattedReviews);
   res.send(view);
 });
 
