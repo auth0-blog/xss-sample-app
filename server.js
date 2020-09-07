@@ -7,6 +7,11 @@ const app = express();
 
 let reviews = [];
 
+app.use(function(req, res, next) {
+  res.setHeader("Content-Security-Policy", "script-src 'self';");
+  next();
+});
+
 app.use(express.static('public'));
 app.use(session({
   secret: 'my-secret',
