@@ -38,10 +38,6 @@
     </style>
 
     <script>
-      function escapeHtml(str) {
-        return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-      }
-
       function search() {
         const searchResult = document.getElementById("search-result");
         const searchTerm = document.getElementById("search-term");
@@ -55,7 +51,7 @@
 
         searchResult.style.display = "block";
 
-        searchTerm.innerHTML = escapeHtml(keyword.value);
+        searchTerm.innerText = keyword.value;
 
         //fetching results related to the keyword value from the server
 
